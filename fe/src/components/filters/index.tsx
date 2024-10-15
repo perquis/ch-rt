@@ -1,3 +1,4 @@
+import { PropsWithChildren } from 'react';
 import { Dropdown, DropdownOption } from '../dropdown';
 import { Search } from '../search';
 
@@ -24,22 +25,26 @@ export const Filters = () => {
       </div>
       <div className="grid grid-cols-4 gap-x-3 mb-4">
         <div>
-          <div className="block text-sm font-bold text-black text-lg mb-2">Sortuj</div>
+          <Label>Sortuj</Label>
           <Dropdown options={sortOptions} filter={'sort'} />
         </div>
         <div>
-          <div className="block text-sm font-bold text-black text-lg mb-2">Funkcje</div>
+          <Label>Funkcje</Label>
           <Dropdown options={featuresOptions} filter={'feature'} />
         </div>
         <div>
-          <div className="block text-sm font-bold text-black text-lg mb-2">Klasa energetyczna</div>
+          <Label>Klasa energetyczna</Label>
           <Dropdown options={energyClassOptions} filter={'energyClass'} />
         </div>
         <div>
-          <div className="block text-sm font-bold text-black text-lg mb-2">Pojemność</div>
+          <Label>Pojemność</Label>
           <Dropdown options={capacityOptions} filter={'capacity'} />
         </div>
       </div>
     </div>
   );
 };
+
+const Label = ({ children }: PropsWithChildren) => (
+  <div className="block text-sm font-bold text-black mb-2">{children}</div>
+);

@@ -1,13 +1,18 @@
-import { mockData } from '../../mock/data';
-import { ProductCard } from '../cards/Product';
-import { Button } from '../button';
-import { useFilterContext } from '../../contexts/filters';
 import { ChevronDown } from 'react-feather';
+import { useFilterContext } from '../../contexts/filters';
+import { useProducts } from '../../server/actions/use-products';
+import { Button } from '../button';
+import { ProductCard } from '../cards/Product';
 
 export const Products = () => {
   const { filters, query } = useFilterContext();
+  const { products, loading } = useProducts();
 
-  const searchByCode = mockData.filter((product) => {
+  if (loading) {
+    return <p>Ładowanie...</p>;
+  }
+
+  const searchByCode = products.filter((product) => {
     return product.code.toLowerCase().includes(query.toLowerCase());
   });
 
