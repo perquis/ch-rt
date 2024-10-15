@@ -1,8 +1,8 @@
-import { Button } from '../../button';
+import { useCartContext } from '../../../contexts/cart';
 import { IProduct } from '../../../interfaces/product';
 import { parseCurrency } from '../../../utils/parseCurrency';
-import { useCartContext } from '../../../contexts/cart';
 import { EnergyBadge } from '../../badge/Energy';
+import { Button } from '../../button';
 
 export const ProductCard = (props: IProduct) => {
   const { items, setItems } = useCartContext();
@@ -46,7 +46,8 @@ export const ProductCard = (props: IProduct) => {
         <EnergyBadge energyClass={energyClass} />
       </div>
       <p className="text-xs text-gray-500">
-        Cena obowiązuje od {validFrom.toLocaleDateString()} do {validTo.toLocaleDateString()}
+        Cena obowiązuje od {new Date(validFrom).toLocaleDateString()} do{' '}
+        {new Date(validTo).toLocaleDateString()}
       </p>
       <div className="mb-3 flex items-center gap-x-1">
         <h5 className="text-4xl text-black font-bold">{parseCurrency(value).unit}</h5>
