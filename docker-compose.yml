@@ -1,2 +1,37 @@
 version: '3'
-# your services for the task
+
+services:
+  # restful-api:
+  #   build:
+  #     context: ./be
+  #     dockerfile: Dockerfile
+  #   depends_on:
+  #     - db
+  #   restart: always
+  #   tty: true
+  #   ports:
+  #     - '8080:8080'
+  #   networks:
+  #     - backend
+  #   healthcheck:
+  #     test: curl -f http://localhost:8080/healthcheck || exit 1
+  #     interval: 40s
+  #     timeout: 30s
+  #     retries: 3
+  #     start_period: 60s
+  #   environment:
+  #     - PORT=8080
+  #     - NODE_ENV=production
+  #     - MONGODB_URI=mongodb://mongo:27017
+
+  db:
+    image: mongo
+    container_name: mongo
+    ports:
+      - '27017:27017'
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
