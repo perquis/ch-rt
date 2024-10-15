@@ -1,0 +1,15 @@
+{
+  "name": "fs-test-task",
+  "version": "1.0.0",
+  "description": "Full Stack Test Task",
+  "main": "index.js",
+  "scripts": {
+    "dev:fe": "cd fe && npm run dev",
+    "dev:be": "docker compose up"
+  },
+  "license": "ISC",
+  "workspaces": [
+    "fe",
+    "be"
+  ]
+}
