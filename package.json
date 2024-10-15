@@ -1,6 +1,7 @@
 {
   "name": "fs-test-task",
   "version": "1.0.0",
+  "private": true,
   "description": "Full Stack Test Task",
   "main": "index.js",
   "scripts": {
