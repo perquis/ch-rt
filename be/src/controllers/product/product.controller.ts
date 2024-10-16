@@ -1,6 +1,7 @@
 import { IProduct } from '@/interfaces/product';
 import { middlewares } from '@/middlewares';
 import { ProductModel } from '@/models/Product';
+import { validateProductFilters } from '@/validations/product.validation';
 import express, { Request } from 'express';
 
 const router = express.Router();
@@ -8,10 +9,18 @@ const router = express.Router();
 router.get('/', middlewares.pagination(ProductModel), async (req: Request, res) => {
   try {
     const {
-      query: { sort, page = '1', limit = '6', code, ...query },
+      query: { sort, code, ...query },
     } = req;
 
     const { pagination } = req;
+
+    const { error } = validateProductFilters({ sort, code, ...query });
+
+    if (error) {
+      res.status(400).send({
+        message: error.errors,
+      });
+    }
 
     let products = ProductModel.find({ ...query, code: { $regex: new RegExp(code, 'i') } })
       .populate({

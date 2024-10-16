@@ -1,5 +1,6 @@
 import { isNumber } from '@/utils/is-number';
 import { makePaginationUrl } from '@/utils/make-pagination-url';
+import { validatePagination } from '@/validations/pagination.validation';
 import { NextFunction, Request, Response } from 'express';
 import { Model } from 'mongoose';
 
@@ -10,6 +11,16 @@ export const pagination = (Model: Model<any>) => async (req: Request, res: Respo
     res.status(400).send({
       message: 'Invalid query',
     });
+    return;
+  }
+
+  const { error } = validatePagination({ page, limit });
+
+  if (error) {
+    res.status(400).send({
+      message: error.errors,
+    });
+
     return;
   }
 
@@ -35,6 +46,9 @@ export const pagination = (Model: Model<any>) => async (req: Request, res: Respo
     next,
     prev,
   };
+
+  delete req.query.page;
+  delete req.query.limit;
 
   nextFunction();
 };
