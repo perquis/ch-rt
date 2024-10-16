@@ -1,8 +1,8 @@
-import { productController } from '@/controllers/product.controller';
+import { controllers } from '@/controllers';
 import express from 'express';
 
 const router = express.Router();
 
-router.use('/products', productController);
+router.use('/products', controllers.productController);
 
 export { router as v1 };

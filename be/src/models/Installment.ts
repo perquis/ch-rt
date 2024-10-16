@@ -1,6 +1,7 @@
+import { IInstallment } from '@/interfaces/product';
 import mongoose from 'mongoose';
 
-export const Installment = new mongoose.Schema(
+export const Installment = new mongoose.Schema<IInstallment>(
   {
     value: {
       type: Number,

@@ -2,7 +2,11 @@ export type EnergyClass = 'A' | 'B' | 'C';
 
 export type Capacity = 8 | 9 | 10.5;
 
-export type Features = 'Drzwi AddWash™' | 'Panel AI Control' | 'Silnik inwerterowy' | 'Wyświetlacz elektroniczny';
+export type Features =
+  | 'Drzwi AddWash™'
+  | 'Panel AI Control'
+  | 'Silnik inwerterowy'
+  | 'Wyświetlacz elektroniczny';
 
 export interface IProduct {
   image: string;
@@ -23,4 +27,13 @@ export interface IProduct {
     validFrom: Date;
     validTo: Date;
   };
+}
+
+export type Sort = 'price' | 'capacity';
+
+export interface IProductFilters {
+  sort: Sort | '';
+  capacity: Capacity | '';
+  energyClass: EnergyClass | '';
+  features: Features | '';
 }

@@ -1,55 +1,51 @@
+import { Button } from 'components/button';
+import { ProductCard } from 'components/cards/Product';
+import { FeedbackMessage } from 'components/feedback-message';
+import { useFilterContext } from 'contexts/filters';
+import { useQuery } from 'hooks/use-query';
+import { IProduct } from 'interfaces/product';
+import { useMemo } from 'react';
 import { ChevronDown } from 'react-feather';
-import { useFilterContext } from '../../contexts/filters';
-import { useProducts } from '../../server/actions/use-products';
-import { Button } from '../button';
-import { ProductCard } from '../cards/Product';
+import { getProducts } from 'services/get-products';
 
 export const Products = () => {
   const { filters, query } = useFilterContext();
-  const { products, loading } = useProducts();
 
-  if (loading) {
-    return <p>Ładowanie...</p>;
-  }
+  const queries = useMemo(
+    () => ({
+      ...filters,
+      code: query,
+    }),
+    [filters, query]
+  );
 
-  const searchByCode = products.filter((product) => {
-    return product.code.toLowerCase().includes(query.toLowerCase());
-  });
+  const { data, isLoading, isError } = useQuery<IProduct>(getProducts, queries);
 
-  const filteredProducts = searchByCode.filter((product) => {
-    if (filters.capacity && product.capacity !== filters.capacity) {
-      return false;
-    }
-    if (filters.energyClass && product.energyClass !== filters.energyClass) {
-      return false;
-    }
-    return !(filters.feature && !product.features.includes(filters.feature));
-  });
+  const when = useMemo(
+    () => ({
+      isError: isError && !isLoading && data.data.length === 0,
+      isLoading: isLoading && data.data.length === 0,
+      isNoData: data.data.length === 0,
+    }),
+    [isError, isLoading, data.data.length]
+  );
 
-  const sortedProducts = filteredProducts.sort((a, b) => {
-    if (filters.sort === 'price') {
-      return a.price.value - b.price.value;
-    }
-    if (filters.sort === 'capacity') {
-      return a.capacity - b.capacity;
-    }
-    return 0;
-  });
-
-  if (filteredProducts.length === 0) {
+  if (when.isError)
     return (
-      <div>
-        <p className="text-center text-gray-500 text-xl mt-4">
-          Brak produktów spełniających kryteria wyszukiwania
-        </p>
-      </div>
+      <FeedbackMessage status={'error'}>Wystąpił błąd podczas ładowania produktów</FeedbackMessage>
     );
+
+  if (when.isLoading)
+    return <FeedbackMessage status={'loading'}>Ładowanie produktów...</FeedbackMessage>;
+
+  if (when.isNoData) {
+    return <FeedbackMessage>Nie znaleziono produktów</FeedbackMessage>;
   }
 
   return (
     <>
       <div className="grid grid-cols-3 gap-x-4 gap-y-5">
-        {sortedProducts.map((product) => (
+        {data.data.map((product) => (
           <ProductCard key={product.code} {...product} />
         ))}
       </div>

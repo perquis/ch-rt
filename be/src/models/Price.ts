@@ -1,6 +1,7 @@
+import { IPrice } from '@/interfaces/product';
 import mongoose from 'mongoose';
 
-export const Price = new mongoose.Schema(
+export const Price = new mongoose.Schema<IPrice>(
   {
     currency: {
       type: String,

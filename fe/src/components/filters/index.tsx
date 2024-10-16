@@ -30,7 +30,7 @@ export const Filters = () => {
         </div>
         <div>
           <Label>Funkcje</Label>
-          <Dropdown options={featuresOptions} filter={'feature'} />
+          <Dropdown options={featuresOptions} filter={'features'} />
         </div>
         <div>
           <Label>Klasa energetyczna</Label>

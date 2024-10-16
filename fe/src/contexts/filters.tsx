@@ -1,17 +1,10 @@
-import { Capacity, EnergyClass, Features } from '../interfaces/product';
 import { createContext, PropsWithChildren, useContext, useMemo, useState } from 'react';
-
-type Sort = 'price' | 'capacity';
+import { IProductFilters } from '../interfaces/product';
 
 export interface FiltersContextType {
   query: string;
   setQuery: (query: string) => void;
-  filters: {
-    sort: Sort | '';
-    capacity: Capacity | '';
-    energyClass: EnergyClass | '';
-    feature: Features | '';
-  };
+  filters: IProductFilters;
   setFilters: (filters: FiltersContextType['filters']) => void;
 }
 
@@ -22,7 +15,7 @@ const FiltersContext = createContext<FiltersContextType>({
     sort: '',
     capacity: '',
     energyClass: '',
-    feature: '',
+    features: '',
   },
   setFilters: () => null,
 });
@@ -33,7 +26,7 @@ export const FiltersProvider = ({ children }: PropsWithChildren) => {
     sort: '',
     capacity: '',
     energyClass: '',
-    feature: '',
+    features: '',
   });
 
   const value = useMemo(

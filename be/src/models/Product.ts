@@ -1,6 +1,7 @@
+import { IProduct } from '@/interfaces/product';
 import mongoose from 'mongoose';
 
-export const Product = new mongoose.Schema(
+export const Product = new mongoose.Schema<IProduct>(
   {
     name: {
       type: String,

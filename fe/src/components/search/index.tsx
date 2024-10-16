@@ -1,5 +1,5 @@
-import { useFilterContext } from '../../contexts/filters';
 import { ChangeEvent } from 'react';
+import { useFilterContext } from '../../contexts/filters';
 
 export const Search = () => {
   const { query, setQuery } = useFilterContext();
@@ -11,6 +11,7 @@ export const Search = () => {
 
   return (
     <input
+      type="search"
       placeholder={'Search'}
       value={query}
       onChange={handleChange}
