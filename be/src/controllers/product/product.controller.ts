@@ -50,6 +50,8 @@ router.get('/', middlewares.pagination(ProductModel), async (req: Request, res) 
       data,
     });
   } catch (error) {
+    if (res.headersSent) return;
+
     if (error instanceof Error) {
       res.status(500).send({
         message: error.message,
