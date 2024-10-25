@@ -1,0 +1,122 @@
+[
+  {
+    "capacity": 9,
+    "code": "WW90T754ABT",
+    "color": "biała",
+    "dimensions": "55 x 60 x 85 cm",
+    "energyClass": "A",
+    "features": ["Drzwi AddWash™", "Panel AI Control", "Silnik inwerterowy", "Wyświetlacz elektroniczny"],
+    "image": "https://f00.esfr.pl/foto/5/71215465857/b7c91239dad8f45eae1abe48d24c6b3b/samsung-ww90ta046te,71215465857_8.jpg",
+    "name": "Pralka QuickDrive™",
+    "price": {
+      "currency": "zł",
+      "installment": {
+        "period": 60,
+        "value": 53.31
+      },
+      "validFrom": "2021-01-01",
+      "validTo": "2021-12-31",
+      "value": 2999.1
+    }
+  },
+  {
+    "capacity": 10.5,
+    "code": "WW90T754ABH",
+    "color": "biała",
+    "dimensions": "55 x 60 x 85 cm",
+    "energyClass": "A",
+    "features": ["Panel AI Control", "Silnik inwerterowy", "Wyświetlacz elektroniczny"],
+    "image": "https://f00.esfr.pl/foto/5/71215465857/b7c91239dad8f45eae1abe48d24c6b3b/samsung-ww90ta046te,71215465857_8.jpg",
+    "name": "Pralka QuickDrive™",
+    "price": {
+      "currency": "zł",
+      "installment": {
+        "period": 60,
+        "value": 53.31
+      },
+      "validFrom": "2021-01-01",
+      "validTo": "2021-12-31",
+      "value": 1999.2
+    }
+  },
+  {
+    "capacity": 8,
+    "code": "WW90T754ABC",
+    "color": "biała",
+    "dimensions": "55 x 60 x 85 cm",
+    "energyClass": "A",
+    "features": ["Drzwi AddWash™", "Panel AI Control", "Silnik inwerterowy", "Wyświetlacz elektroniczny"],
+    "image": "https://f00.esfr.pl/foto/5/71215465857/b7c91239dad8f45eae1abe48d24c6b3b/samsung-ww90ta046te,71215465857_8.jpg",
+    "name": "Pralka QuickDrive™",
+    "price": {
+      "currency": "zł",
+      "installment": {
+        "period": 60,
+        "value": 53.31
+      },
+      "validFrom": "2021-01-01",
+      "validTo": "2021-12-31",
+      "value": 1799
+    }
+  },
+  {
+    "capacity": 9,
+    "code": "WW90T754ABD",
+    "color": "biała",
+    "dimensions": "55 x 60 x 85 cm",
+    "energyClass": "B",
+    "features": ["Drzwi AddWash™", "Panel AI Control", "Silnik inwerterowy"],
+    "image": "https://f00.esfr.pl/foto/5/71215465857/b7c91239dad8f45eae1abe48d24c6b3b/samsung-ww90ta046te,71215465857_8.jpg",
+    "name": "Pralka QuickDrive™",
+    "price": {
+      "currency": "zł",
+      "installment": {
+        "period": 60,
+        "value": 53.31
+      },
+      "validFrom": "2021-01-01",
+      "validTo": "2021-12-31",
+      "value": 1999
+    }
+  },
+  {
+    "capacity": 10.5,
+    "code": "WW90T754ABE",
+    "color": "biała",
+    "dimensions": "55 x 60 x 85 cm",
+    "energyClass": "C",
+    "features": ["Drzwi AddWash™", "Panel AI Control", "Silnik inwerterowy", "Wyświetlacz elektroniczny"],
+    "image": "https://f00.esfr.pl/foto/5/71215465857/b7c91239dad8f45eae1abe48d24c6b3b/samsung-ww90ta046te,71215465857_8.jpg",
+    "name": "Pralka QuickDrive™",
+    "price": {
+      "currency": "zł",
+      "installment": {
+        "period": 60,
+        "value": 53.31
+      },
+      "validFrom": "2021-01-01",
+      "validTo": "2021-12-31",
+      "value": 1999
+    }
+  },
+  {
+    "capacity": 8,
+    "code": "WW90T754ABF",
+    "color": "biała",
+    "dimensions": "55 x 60 x 85 cm",
+    "energyClass": "B",
+    "features": ["Drzwi AddWash™", "Panel AI Control", "Wyświetlacz elektroniczny"],
+    "image": "https://f00.esfr.pl/foto/5/71215465857/b7c91239dad8f45eae1abe48d24c6b3b/samsung-ww90ta046te,71215465857_8.jpg",
+    "name": "Pralka QuickDrive™",
+    "price": {
+      "currency": "zł",
+      "installment": {
+        "period": 60,
+        "value": 53.31
+      },
+      "validFrom": "2021-01-01",
+      "validTo": "2021-12-31",
+      "value": 1999
+    }
+  }
+]

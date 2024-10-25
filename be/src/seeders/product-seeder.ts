@@ -1,7 +1,7 @@
-import { mockData } from '@/data/products.data';
-import { InstallmentModel } from '@/models/Installment';
-import { PriceModel } from '@/models/Price';
-import { ProductModel } from '@/models/Product';
+import products from "@/data/products.json";
+import { InstallmentModel } from "@/models/Installment";
+import { PriceModel } from "@/models/Price";
+import { ProductModel } from "@/models/Product";
 
 export const productSeeder = async () => {
   try {
@@ -11,7 +11,7 @@ export const productSeeder = async () => {
     for (const {
       price: { installment, ...priceRest },
       ...product
-    } of mockData) {
+    } of products) {
       const installmentItem = new InstallmentModel(installment),
         savedInstallment = await installmentItem.save();
 
@@ -22,8 +22,8 @@ export const productSeeder = async () => {
       await newProduct.save();
     }
 
-    console.log('The Products were seeded successfully');
+    console.log("The Products were seeded successfully");
   } catch (error) {
-    console.error('Error while seeding product', error);
+    console.error("Error while seeding product", error);
   }
 };
